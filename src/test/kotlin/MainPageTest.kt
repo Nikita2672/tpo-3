@@ -11,7 +11,7 @@ class MainPageTest : AbstractPageTest("https://timeweb.com/ru/services/domains")
 
     @ParameterizedTest
     @MethodSource("browserProvider")
-    fun `check reg domain`(browser: String) {
+    fun `check reg domain`(browser: Browser) {
         browserSetup(browser)
         mainPage = MainPage(driver)
         mainPage.mailButton.click()
@@ -23,7 +23,7 @@ class MainPageTest : AbstractPageTest("https://timeweb.com/ru/services/domains")
 
     @ParameterizedTest
     @MethodSource("browserProvider")
-    fun `check vds vps redirect`(browser: String) {
+    fun `check vds vps redirect`(browser: Browser) {
         browserSetup(browser)
         mainPage = MainPage(driver)
         mainPage.vdsAndVpsButton.click()
@@ -35,7 +35,7 @@ class MainPageTest : AbstractPageTest("https://timeweb.com/ru/services/domains")
 
     @ParameterizedTest
     @MethodSource("browserProvider")
-    fun `check dedicated server redirect`(browser: String) {
+    fun `check dedicated server redirect`(browser: Browser) {
         browserSetup(browser)
         mainPage = MainPage(driver)
         mainPage.dedicatedServerButton.click()
@@ -47,7 +47,7 @@ class MainPageTest : AbstractPageTest("https://timeweb.com/ru/services/domains")
 
     @ParameterizedTest
     @MethodSource("browserProvider")
-    fun `check constructor redirect`(browser: String) {
+    fun `check constructor redirect`(browser: Browser) {
         browserSetup(browser)
         mainPage = MainPage(driver)
         mainPage.constructorButton.click()
@@ -59,7 +59,7 @@ class MainPageTest : AbstractPageTest("https://timeweb.com/ru/services/domains")
 
     @ParameterizedTest
     @MethodSource("browserProvider")
-    fun `check webmasters redirect`(browser: String) {
+    fun `check webmasters redirect`(browser: Browser) {
         browserSetup(browser)
         mainPage = MainPage(driver)
         mainPage.webmastersButton.click()

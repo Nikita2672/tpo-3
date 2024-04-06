@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory
 class DomainPage(driver: WebDriver) {
 
     @FindBy(xpath = "//*[@id=\"select-domain\"]/form/div[1]/div/div/input")
-    lateinit var domainInputButton: WebElement
+    lateinit var domainInput: WebElement
 
     @FindBy(xpath = "//*[@id=\"select-domain\"]/form/div[1]/div/div/div/div/button")
     lateinit var checkButton: WebElement

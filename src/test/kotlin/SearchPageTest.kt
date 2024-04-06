@@ -16,7 +16,7 @@ class SearchPageTest : AbstractPageTest("https://timeweb.com/ru/search/") {
 
     @ParameterizedTest
     @MethodSource("browserProvider")
-    fun `check knowledge base`(browser: String) {
+    fun `check knowledge base`(browser: Browser) {
         browserSetup(browser)
         searchPage = SearchPage(driver)
         searchPage.searchField.sendKeys("хостинг")

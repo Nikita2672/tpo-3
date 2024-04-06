@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import org.openqa.selenium.By
@@ -14,7 +15,7 @@ class ConstructorPageTest: AbstractPageTest("https://timeweb.com/ru/services/con
 
     @ParameterizedTest
     @MethodSource("browserProvider")
-    fun `check search template`(browser: String) {
+    fun `check search template`(browser: Browser) {
         browserSetup(browser)
         constructorPage = ConstructorPage(driver)
         constructorPage.searchTemplateField.sendKeys("универсальный шаблон")
@@ -27,8 +28,8 @@ class ConstructorPageTest: AbstractPageTest("https://timeweb.com/ru/services/con
         (driver as JavascriptExecutor).executeScript("arguments[0].scrollIntoView(true);", templateButton)
 
         // Проверка наличия элемента
-        assert(template != null)
-        assert(templateButton != null)
+        assertTrue(template != null)
+        assertTrue(templateButton != null)
 
         val windowsHandleCounterBefore = driver.windowHandles.size
         // Клик по кнопке
@@ -36,6 +37,6 @@ class ConstructorPageTest: AbstractPageTest("https://timeweb.com/ru/services/con
         val windowsHandleCounterAfter = driver.windowHandles.size
 
         // Проверка открытия новой страницы
-        assert(windowsHandleCounterAfter == (windowsHandleCounterBefore + 1))
+        assertTrue(windowsHandleCounterAfter == (windowsHandleCounterBefore + 1))
     }
 }

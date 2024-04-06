@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import org.openqa.selenium.By
@@ -5,7 +6,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
 import pages.PaymentPage
 import java.time.Duration
-import kotlin.test.assertEquals
 
 class PaymentPageTest: AbstractPageTest("https://timeweb.com/ru/services/domains") {
 
@@ -13,7 +13,7 @@ class PaymentPageTest: AbstractPageTest("https://timeweb.com/ru/services/domains
 
     @ParameterizedTest
     @MethodSource("browserProvider")
-    fun `check payment info`(browser: String) {
+    fun `check payment info`(browser: Browser) {
         browserSetup(browser)
         paymentPage = PaymentPage(driver)
         paymentPage.paymentInfoButton.click()

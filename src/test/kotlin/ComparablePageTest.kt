@@ -1,13 +1,13 @@
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import org.openqa.selenium.By
-import kotlin.test.assertEquals
 
 class ComparablePageTest : AbstractPageTest("https://timeweb.com/ru/services/compare/"){
 
     @ParameterizedTest
     @MethodSource("browserProvider")
-    fun `check content`(browser: String) {
+    fun `check content`(browser: Browser) {
         browserSetup(browser)
         val hosting = driver.findElement(By.xpath("//*[@id=\"compare-table\"]/tbody/tr[1]/td[1]/div/div[2]"))
         assertEquals(hosting.text, "Хостинг")
