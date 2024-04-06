@@ -26,9 +26,6 @@ class SearchPageTest : AbstractPageTest("https://timeweb.com/ru/search/") {
         val element =
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__layout\"]/div/div[3]/div[2]/div/div[2]/div[1]/div[1]/div[1]")))
         element.click()
-
-        sleep(5000)
-
-        assertEquals(driver.currentUrl, "https://timeweb.com/ru/docs/virtualnyj-hosting")
+        wait.until(ExpectedConditions.urlToBe("https://timeweb.com/ru/docs/virtualnyj-hosting"))
     }
 }
